@@ -1,8 +1,8 @@
 {% set name = "compas_fab" %}
-{% set version = "0.2.1" %}
+{% set version = "0.3.0" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "17719dfe35265f868f22fb12ae48bff4955cb58358997eb709783efb4ef7c09b" %}
+{% set hash_value = "3e043de4befcc65f350960bd50e93a3b5dc7aaa5fa583379d85cb8488b511789" %}
 
 package:
   name: '{{ name|lower }}'
@@ -14,7 +14,8 @@ source:
   '{{ hash_type }}': '{{ hash_value }}'
 
 build:
-  number: 1
+  skip: True   # [linux and py27]
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
@@ -24,8 +25,8 @@ requirements:
     - setuptools
   run:
     - python
-    - compas ==0.3.2
-    - roslibpy >=0.3.0
+    - compas ==0.4.8
+    - roslibpy >=0.4.0
     - pyserial
 
 test:
