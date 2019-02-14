@@ -30,6 +30,7 @@ requirements:
     - compas ==0.4.10
     - roslibpy >=0.4.0
     - pyserial
+    - scipy
 
 test:
   imports:
