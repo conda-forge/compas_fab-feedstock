@@ -1,8 +1,8 @@
 {% set name = "compas_fab" %}
-{% set version = "0.4.1" %}
+{% set version = "0.5.0" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "bc38d1ec00a2bdc1205f71680e48439396683828b1eb716e9236fc889289ca5e" %}
+{% set hash_value = "a702180f6a171001893b404bdefe86efed7e7078a49092580f63d04c80de8409" %}
 
 package:
   name: '{{ name|lower }}'
@@ -17,7 +17,7 @@ build:
   # Fix conda issue with location of vrep shared libraries path
   binary_relocation: False
   skip: True   # [linux and py27]
-  number: 2
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
@@ -27,8 +27,8 @@ requirements:
     - setuptools
   run:
     - python
-    - compas ==0.4.10
-    - roslibpy >=0.4.0
+    - compas ==0.5.2
+    - roslibpy >=0.4.1
     - pyserial
 
 test:
