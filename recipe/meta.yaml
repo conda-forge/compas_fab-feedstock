@@ -1,8 +1,8 @@
 {% set name = "compas_fab" %}
-{% set version = "0.5.0" %}
+{% set version = "0.6.0" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "a702180f6a171001893b404bdefe86efed7e7078a49092580f63d04c80de8409" %}
+{% set hash_value = "27643c1bcb9bde21e27e4095b8ea1c14f28deb7e114af74a4a12caf53874d822" %}
 
 package:
   name: '{{ name|lower }}'
@@ -27,7 +27,7 @@ requirements:
     - setuptools
   run:
     - python
-    - compas ==0.5.2
+    - compas >=0.8.1,<0.9
     - roslibpy >=0.4.1
     - pyserial
 
@@ -38,7 +38,7 @@ test:
     - compas_fab.robots
 
 about:
-  home: https://github.com/gramaziokohler/compas_fab
+  home: https://github.com/compas-dev/compas_fab
   license: MIT
   license_family: MIT
   license_file: LICENSE
@@ -53,7 +53,7 @@ about:
     framework for collaboration and research in architecture, engineering
     and digital fabrication.
   doc_url: https://gramaziokohler.github.io/compas_fab
-  dev_url: https://github.com/gramaziokohler/compas_fab
+  dev_url: https://github.com/compas-dev/compas_fab
 
 extra:
   recipe-maintainers:
