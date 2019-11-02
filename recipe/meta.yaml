@@ -27,7 +27,7 @@ requirements:
     - setuptools
   run:
     - python
-    - compas >=0.8.1,<0.9
+    - compas >=0.10,<0.11
     - roslibpy >=0.7
     - pyserial
 
