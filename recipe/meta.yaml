@@ -1,8 +1,8 @@
 {% set name = "compas_fab" %}
-{% set version = "0.8.0" %}
+{% set version = "0.9.0" %}
 {% set file_ext = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "8c83413c2619beb90c906e63f9fb8fd4703a62d255b0759988cd358e898b74cc" %}
+{% set hash_value = "b968a1a448835d37d82d2a2b95de5375695c81469b9aae17d8520bbfeae4e368" %}
 
 package:
   name: '{{ name|lower }}'
@@ -27,7 +27,7 @@ requirements:
     - setuptools
   run:
     - python
-    - compas >=0.10,<0.11
+    - compas >=0.11,<0.12
     - roslibpy >=0.7
     - pyserial
 
