@@ -28,7 +28,7 @@ requirements:
   run:
     - python
     - compas >=0.11,<0.12
-    - roslibpy >=0.7
+    - roslibpy >=0.7.1
     - pyserial
 
 test:
@@ -58,3 +58,4 @@ about:
 extra:
   recipe-maintainers:
     - gonzalocasas
+    - beverlylytle
