@@ -200,4 +200,5 @@ Feedstock Maintainers
 
 * [@beverlylytle](https://github.com/beverlylytle/)
 * [@gonzalocasas](https://github.com/gonzalocasas/)
+* [@romanarust](https://github.com/romanarust/)
 
