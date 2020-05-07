@@ -1,24 +1,21 @@
 {% set name = "compas_fab" %}
-{% set version = "0.10.2" %}
-{% set file_ext = "tar.gz" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "2df247d4f3a97148556b56813bbcecb18d2ca821c7a7784b3ac03f5b679a20d0" %}
+{% set version = "0.11.0" %}
 
 package:
-  name: '{{ name|lower }}'
-  version: '{{ version }}'
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  fn: '{{ name }}-{{ version }}.{{ file_ext }}'
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ file_ext }}
-  '{{ hash_type }}': '{{ hash_value }}'
+  fn: {{ name }}-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 01b5153cc50083bfb6b37945f4f93ed3dd37e87948064de200aae695db9ed488
 
 build:
   # Fix conda issue with location of vrep shared libraries path
-  binary_relocation: False
-  skip: True   # [linux and py27]
+  binary_relocation: false
+  skip: true  # [linux and py27]
   number: 0
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
   host:
