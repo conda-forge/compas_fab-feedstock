@@ -24,15 +24,18 @@ requirements:
     - setuptools
   run:
     - python
-    - compas >=0.15.6,<0.16
-    - roslibpy >=0.7.1
+    - compas >=0.16.9,<0.17
+    - roslibpy >=1.1.0
     - pyserial
+    # pybullet (currently not in conda)
 
 test:
   imports:
     - compas_fab
-    - compas_fab.artists
+    - compas_fab.backends
     - compas_fab.robots
+    - compas_fab.rhino
+    - compas_fab.blender
 
 about:
   home: https://github.com/compas-dev/compas_fab
