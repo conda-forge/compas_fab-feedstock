@@ -27,7 +27,7 @@ requirements:
     - compas >=0.16.9,<0.17
     - roslibpy >=1.1.0
     - pyserial
-    # pybullet (currently not in conda)
+    - bullet   # (should technically be pybullet, but currently not in conda)
 
 test:
   imports:
