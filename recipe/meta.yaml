@@ -23,7 +23,7 @@ requirements:
     - setuptools
   run:
     - python
-    - compas >=0.17,<0.18
+    - compas >=0.18,<0.19
     - roslibpy >=1.1.0
     - pyserial
     - bullet   # (should technically be pybullet, but currently not in conda)
