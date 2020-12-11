@@ -1,5 +1,5 @@
 {% set name = "compas_fab" %}
-{% set version = "0.14.0" %}
+{% set version = "0.15.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 43532f687e01baa4417b91119e9bf5396f2452682824e9ea25238ebfe1e116cf
+  sha256: 39085a7f21633ca9a79ee0f48f4b24d0e57fcd0006bc009e38c3c278ae89a286
 
 build:
   # Fix conda issue with location of vrep shared libraries path
@@ -23,7 +23,7 @@ requirements:
     - setuptools
   run:
     - python
-    - compas >=0.18,<0.19
+    - compas >=0.19,<0.20
     - roslibpy >=1.1.0
     - pyserial
     - bullet   # (should technically be pybullet, but currently not in conda)
