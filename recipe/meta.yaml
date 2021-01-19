@@ -1,5 +1,5 @@
 {% set name = "compas_fab" %}
-{% set version = "0.15.0" %}
+{% set version = "0.16.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 39085a7f21633ca9a79ee0f48f4b24d0e57fcd0006bc009e38c3c278ae89a286
+  sha256: f047605dbe9d2acb460b1a2a555c3b4a53d213399e7ed80d76aede479a8164ad
 
 build:
   # Fix conda issue with location of vrep shared libraries path
