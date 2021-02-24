@@ -16,11 +16,10 @@ Documentation: https://gramaziokohler.github.io/compas_fab
 Robotic fabrication package for the COMPAS Framework facilitating the
 planning and execution of robotic fabrication processes. It provides
 interfaces to existing software libraries and tools available in the
-field of robotics (e.g. OMPL, ROS) and makes them accessible from within
-the parametric design environment. The package builds upon
-COMPAS (https://compas-dev.github.io/), an open-source Python-based
-framework for collaboration and research in architecture, engineering
-and digital fabrication.
+field of robotics (e.g. OMPL, ROS, PyBullet) and makes them accessible
+from within the parametric design environment. The package builds upon
+COMPAS (https://compas.dev), an open-source Python-based framework for
+collaboration and research in architecture, engineering and digital fabrication.
 
 
 Current build status
