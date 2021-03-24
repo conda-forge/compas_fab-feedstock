@@ -13,7 +13,7 @@ source:
 build:
   # Fix conda issue with location of vrep shared libraries path
   binary_relocation: false
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
@@ -26,7 +26,7 @@ requirements:
     - compas >=0.18,<0.19
     - roslibpy >=1.1.0
     - pyserial
-    - bullet   # (should technically be pybullet, but currently not in conda)
+    - pybullet
 
 test:
   imports:
