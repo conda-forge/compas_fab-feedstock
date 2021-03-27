@@ -13,7 +13,7 @@ source:
 build:
   # Fix conda issue with location of vrep shared libraries path
   binary_relocation: false
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
