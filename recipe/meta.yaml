@@ -29,7 +29,7 @@ requirements:
 test:
   imports:
     - compas_fab
-    - compas_fab.backends   # [not linux]
+    - compas_fab.backends
     - compas_fab.robots
     - compas_fab.rhino
     - compas_fab.blender
