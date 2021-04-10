@@ -1,0 +1,115 @@
+From 841d5c669bee39faa360723bc9668ad762c1f5b0 Mon Sep 17 00:00:00 2001
+From: Gonzalo Casas <casas@arch.ethz.ch>
+Date: Sat, 10 Apr 2021 11:31:04 +0200
+Subject: [PATCH] Lazy load V-REP remoteApi library
+
+---
+ .../backend_features/vrep_add_attached_collision_mesh.py  | 8 +++++---
+ .../vrep/backend_features/vrep_remove_collision_mesh.py   | 7 ++++---
+ src/compas_fab/backends/vrep/client.py                    | 8 +++++---
+ src/compas_fab/backends/vrep/helpers.py                   | 4 +---
+ 4 files changed, 15 insertions(+), 12 deletions(-)
+
+diff --git a/src/compas_fab/backends/vrep/backend_features/vrep_add_attached_collision_mesh.py b/src/compas_fab/backends/vrep/backend_features/vrep_add_attached_collision_mesh.py
+index c8e7966d..ca2da9a5 100644
+--- a/src/compas_fab/backends/vrep/backend_features/vrep_add_attached_collision_mesh.py
++++ b/src/compas_fab/backends/vrep/backend_features/vrep_add_attached_collision_mesh.py
+@@ -2,16 +2,18 @@
+ from __future__ import division
+ from __future__ import print_function
+
+-from compas_fab.backends.vrep.helpers import assert_robot
++from compas_fab.backends.interfaces import AddAttachedCollisionMesh
+ from compas_fab.backends.vrep.helpers import DEFAULT_OP_MODE
+ from compas_fab.backends.vrep.helpers import VrepError
+-from compas_fab.backends.interfaces import AddAttachedCollisionMesh
+-from compas_fab.backends.vrep.remote_api import vrep
++from compas_fab.backends.vrep.helpers import assert_robot
++from compas_fab.utilities import LazyLoader
+
+ __all__ = [
+     'VrepAddAttachedCollisionMesh',
+ ]
+
++vrep = LazyLoader('vrep', globals(), 'compas_fab.backends.vrep.remote_api.vrep')
++
+
+ class VrepAddAttachedCollisionMesh(AddAttachedCollisionMesh):
+     """Callable to add a building member to the 3D scene and attach it to the robot.
+diff --git a/src/compas_fab/backends/vrep/backend_features/vrep_remove_collision_mesh.py b/src/compas_fab/backends/vrep/backend_features/vrep_remove_collision_mesh.py
+index 3d2437aa..2832e989 100644
+--- a/src/compas_fab/backends/vrep/backend_features/vrep_remove_collision_mesh.py
++++ b/src/compas_fab/backends/vrep/backend_features/vrep_remove_collision_mesh.py
+@@ -2,15 +2,16 @@
+ from __future__ import division
+ from __future__ import print_function
+
+-from compas_fab.backends.vrep.helpers import DEFAULT_OP_MODE
+-from compas_fab.backends.vrep.remote_api import vrep
+ from compas_fab.backends.interfaces import RemoveCollisionMesh
+-
++from compas_fab.backends.vrep.helpers import DEFAULT_OP_MODE
++from compas_fab.utilities import LazyLoader
+
+ __all__ = [
+     'VrepRemoveCollisionMesh',
+ ]
+
++vrep = LazyLoader('vrep', globals(), 'compas_fab.backends.vrep.remote_api.vrep')
++
+
+ class VrepRemoveCollisionMesh(RemoveCollisionMesh):
+     """Callable to remove collision meshes from the 3D scene.
+diff --git a/src/compas_fab/backends/vrep/client.py b/src/compas_fab/backends/vrep/client.py
+index ed83d73b..3537524d 100644
+--- a/src/compas_fab/backends/vrep/client.py
++++ b/src/compas_fab/backends/vrep/client.py
+@@ -2,9 +2,9 @@
+
+ import logging
+
+-from compas_fab.backends.vrep.helpers import DEFAULT_OP_MODE
+ from compas_fab.backends.interfaces.client import ClientInterface
+ from compas_fab.backends.vrep import VrepError
++from compas_fab.backends.vrep.helpers import DEFAULT_OP_MODE
+ from compas_fab.backends.vrep.helpers import assert_robot
+ from compas_fab.backends.vrep.helpers import config_from_vrep
+ from compas_fab.backends.vrep.helpers import config_to_vrep
+@@ -12,12 +12,14 @@
+ from compas_fab.backends.vrep.helpers import floats_to_vrep
+ from compas_fab.backends.vrep.helpers import resolve_host
+ from compas_fab.backends.vrep.planner import VrepPlanner
+-from compas_fab.backends.vrep.remote_api import vrep
++from compas_fab.utilities import LazyLoader
+
+ DEFAULT_SCALE = 1.
+-CHILD_SCRIPT_TYPE = vrep.sim_scripttype_childscript
++CHILD_SCRIPT_TYPE = 1    # defined in vrepConst.sim_scripttype_childscript, but redefined here to prevent loading the remoteApi library
+ LOG = logging.getLogger('compas_fab.backends.vrep.client')
+
++vrep = LazyLoader('vrep', globals(), 'compas_fab.backends.vrep.remote_api.vrep')
++
+ __all__ = [
+     'VrepClient',
+ ]
+diff --git a/src/compas_fab/backends/vrep/helpers.py b/src/compas_fab/backends/vrep/helpers.py
+index 99b227a2..f3298fa6 100644
+--- a/src/compas_fab/backends/vrep/helpers.py
++++ b/src/compas_fab/backends/vrep/helpers.py
+@@ -4,15 +4,13 @@
+ from compas.geometry import matrix_from_frame
+
+ from compas_fab.backends.exceptions import BackendError
+-from compas_fab.backends.vrep.remote_api import vrep
+-
+ from compas_fab.robots import Configuration
+
+ __all__ = [
+     'VrepError',
+ ]
+
+-DEFAULT_OP_MODE = vrep.simx_opmode_blocking
++DEFAULT_OP_MODE = 0x010000  # defined in vrepConst.simx_opmode_blocking, but redefined here to prevent loading the remoteApi library
+
+ # --------------------------------------------------------------------------
+ # MAPPINGS
