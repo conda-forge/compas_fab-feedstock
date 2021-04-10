@@ -11,22 +11,20 @@ source:
   sha256: 9074dfe324c7f3cb5b294a1fce8789b0f22d91ddaed697827706ad720073feb1
 
 build:
-  # Fix conda issue with location of vrep shared libraries path
-  binary_relocation: false
-  number: 2
+  number: 3
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  noarch: python
 
 requirements:
   host:
-    - python
     - pip
-    - setuptools
+    - python >=3.6
   run:
-    - python
     - compas >=1.1,<2.0
     - roslibpy >=1.1.0
     - pyserial
     - pybullet
+    - python >=3.6
 
 test:
   imports:
@@ -35,6 +33,10 @@ test:
     - compas_fab.robots
     - compas_fab.rhino
     - compas_fab.blender
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: https://github.com/compas-dev/compas_fab
