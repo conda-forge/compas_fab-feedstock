@@ -11,6 +11,8 @@ source:
   sha256: 9074dfe324c7f3cb5b294a1fce8789b0f22d91ddaed697827706ad720073feb1
 
 build:
+  # Fix conda issue with location of vrep shared libraries path
+  binary_relocation: false
   number: 3
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
   noarch: python
