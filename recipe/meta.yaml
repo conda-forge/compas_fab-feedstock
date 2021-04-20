@@ -1,5 +1,5 @@
 {% set name = "compas_fab" %}
-{% set version = "0.17.0" %}
+{% set version = "0.17.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9074dfe324c7f3cb5b294a1fce8789b0f22d91ddaed697827706ad720073feb1
+  sha256: e3c7b33da76f9ee08a51f0b2d786533f2c8634d506ab9fd3c5aa43c1521ba244
   patches:
     - lazy-load-remoteapi.patch
 
