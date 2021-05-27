@@ -13,7 +13,7 @@ source:
 build:
   # Fix conda issue with location of vrep shared libraries path
   binary_relocation: false
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
@@ -21,7 +21,7 @@ requirements:
     - pip
     - python
   run:
-    - compas >=1.1,<2.0
+    - compas >=1.3,<2.0
     - roslibpy >=1.1.0
     - pyserial
     - pybullet
