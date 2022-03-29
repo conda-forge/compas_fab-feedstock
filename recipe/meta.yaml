@@ -1,5 +1,5 @@
 {% set name = "compas_fab" %}
-{% set version = "0.22.0" %}
+{% set version = "0.23.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c7a00a66ef6e4e19daf1af8eef7262a48e19b9dfcab245fda8035ee059e15ab8
+  sha256: dbcc51fbef484c5b6afd0e08fe62660000ea10f36edf944657f599276552d1fc
 
 build:
   number: 1
@@ -22,7 +22,7 @@ requirements:
     - pip
     - python
   run:
-    - compas >=1.7,<2.0
+    - compas >=1.14,<2.0
     - roslibpy >=1.1.0
     - pyserial
     - pybullet
