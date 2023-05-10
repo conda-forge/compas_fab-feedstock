@@ -1,11 +1,11 @@
-About compas_fab
-================
+About compas_fab-feedstock
+==========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/compas_fab-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/compas-dev/compas_fab
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/compas_fab-feedstock/blob/main/LICENSE.txt)
 
 Summary: Robotic fabrication package for the COMPAS Framework
 
