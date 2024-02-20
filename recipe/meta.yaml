@@ -22,8 +22,8 @@ requirements:
     - pip
     - python
   run:
-    - compas 2.0.4,<3
-    - compas_robots >= 0.3,<1
+    - compas >=2.0.4,<3
+    - compas_robots >=0.3,<1
     - roslibpy >=1.1.0
     - pyserial
     - pybullet
