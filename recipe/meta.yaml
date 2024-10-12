@@ -21,6 +21,7 @@ requirements:
   host:
     - pip
     - python
+    - setuptools
   run:
     - compas >=2.0.4,<3
     - compas_robots >=0.3,<1
