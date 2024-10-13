@@ -22,8 +22,8 @@ requirements:
     - pip
     - python
     - setuptools
-    - tomli                                   # Added due to something that looks like a bug in incremental: https://github.com/twisted/incremental/issues/106
   run:
+    - incremental==22.10.0                   # Pinning this because build is breaking https://github.com/twisted/incremental/issues/106
     - compas >=2.0.4,<3
     - compas_robots >=0.3,<1
     - roslibpy >=1.1.0
