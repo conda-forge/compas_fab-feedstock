@@ -11,7 +11,7 @@ source:
   sha256: 73825df139a606d3b3084e99daca20838706ea352483389f3a64b84bd2fffd3f
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
 
 requirements:
@@ -21,7 +21,9 @@ requirements:
   host:
     - pip
     - python
+    - setuptools
   run:
+    - tomli                   # This is because build is breaking https://github.com/twisted/incremental/issues/106
     - compas >=2.0.4,<3
     - compas_robots >=0.3,<1
     - roslibpy >=1.1.0
