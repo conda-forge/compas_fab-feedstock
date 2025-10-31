@@ -26,7 +26,7 @@ requirements:
     - tomli                   # This is because build is breaking https://github.com/twisted/incremental/issues/106
     - compas >=2.0.4,<3
     - compas_robots >=0.3,<1
-    - roslibpy >=1.1.0
+    - roslibpy >=1.1.0,<2
     - pyserial
     - pybullet
     - python
