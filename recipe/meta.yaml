@@ -23,11 +23,9 @@ requirements:
     - python
     - setuptools
   run:
-    - tomli                   # This is because build is breaking https://github.com/twisted/incremental/issues/106
-    - compas >=2.0.4,<3
-    - compas_robots >=0.3,<1
-    - roslibpy >=1.1.0,<2
-    - pyserial
+    - compas >=2.3,<3
+    - compas_robots >=1,<2
+    - roslibpy >=2,<3
     - pybullet
     - python
 
