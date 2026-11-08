@@ -1,5 +1,5 @@
 {% set name = "compas_fab" %}
-{% set version = "2.0.1" %}
+{% set version = "2.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,8 +7,8 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 9ef1636bbfc54278c880066abc46ed88b861f8df9f6ed341397877ad3712a027
+  url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: e470e1f80fcc22a242f474c1bf7eefad2e021cfdb789a00841465a2307539767
 
 build:
   number: 0
@@ -24,7 +24,7 @@ requirements:
     - setuptools
   run:
     - compas >=2.3,<3
-    - compas_robots >=1,<2
+    - compas_robots >=1.1,<2
     - roslibpy >=2,<3
     - pybullet
     - python
